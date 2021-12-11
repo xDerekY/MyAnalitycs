@@ -14,7 +14,7 @@ macro bind(def, element)
     end
 end
 
-# ╔═╡ b3a2acf8-46ac-47bb-9e65-e90994174789
+# ╔═╡ d5056b36-dd9c-4ef4-9393-5acfa8250a4b
 begin
 	
 	begin
@@ -206,14 +206,14 @@ begin
 	end
 end
 
-# ╔═╡ 240f387f-c8fd-46ea-b955-17f470c9c172
+# ╔═╡ 920827e5-e351-48cd-9aa3-dc4b5ced2371
 begin
     using Query
     import Statistics
     using VegaLite
 end
 
-# ╔═╡ 7def8611-958a-4df7-ba5c-f57581218204
+# ╔═╡ 0d9444c4-86d3-4bc6-b88e-da1b30707fd2
 begin
 	using Images
 	
@@ -238,13 +238,13 @@ begin
 	FileIO.save("./assets/icons/-1.png",resized);
 end;
 
-# ╔═╡ c2d01840-6e0b-4e2e-a4aa-236c06e8a466
+# ╔═╡ 185c646e-877f-4802-acda-83f4a1bca263
 begin
 	using ImageDraw
 	xy2coord(x,y) = Dict(:x=>floor(Int,x/14870*512),:y=>floor(Int,y/14870*512))
 end;
 
-# ╔═╡ 3803bad0-d0b5-4a19-9d42-22843ecafa15
+# ╔═╡ c3f93002-ab58-4a8e-9279-ca661160dd58
 # # Installation cell
 # %%capture
 # %%shell
@@ -258,29 +258,29 @@ end;
 # julia -e 'using Pkg; pkg"add IJulia; precompile;"'
 # echo 'Done'
 
-# ╔═╡ 6991e490-2585-436b-836b-538b4d254f5d
+# ╔═╡ 623f936e-d28d-4d6d-aefc-5b3d36d4f2f6
 # !curl -sSL "https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.0-linux-x86_64.tar.gz" -o julia.tar.gz
 # !tar -xzf julia.tar.gz -C /usr --strip-components 1
 # !rm -rf julia.tar.gz*
 # !julia -e 'using Pkg; Pkg.add("IJulia"); precompile'
 
-# ╔═╡ 88488ca7-db74-4bb7-8df9-d07052c9544a
+# ╔═╡ 4c42b1e0-26b4-4867-bf0d-468408cc502f
 html"""<style>
 main {
     max-width: 1000px;
 }
 """
 
-# ╔═╡ 41118218-264d-4f78-9850-ffbe6adb674d
-hostTeam = "HOF"
+# ╔═╡ 84911782-146b-4277-a53b-09821fd50444
+hostTeam = "TEST"
 
-# ╔═╡ 7646ba26-b293-4980-9bcf-0254b1e26394
-teamName = "team01122021"
+# ╔═╡ 22ef26b2-0e7d-439c-9e94-52134b0c4d78
+teamName = "team08122021"
 
-# ╔═╡ 9901c2e1-d510-4c13-82c1-e2852027bf1b
+# ╔═╡ 3b356c50-5254-49b9-b41f-4878aba56c3b
 path = "./teams/$hostTeam/$teamName/"
 
-# ╔═╡ 7ce70e9d-97ed-4d8c-a2ca-214fd867bdac
+# ╔═╡ b90fed80-2066-4807-b3d1-6a16f9177fdd
 #=
 begin
 	 import Pkg
@@ -297,27 +297,27 @@ begin
 end
 =#
 
-# ╔═╡ b9312465-6997-4bc6-b5fb-c1012c42d181
+# ╔═╡ e5bdb39e-b43a-46b2-8259-ebd645f661da
 # Pkg.add(["Query","Statistics","VegaLite"])
 
-# ╔═╡ 47cd4d11-5fe7-46ba-b91a-36261fa83057
+# ╔═╡ 21085e82-ce07-4113-b0a9-ce243b0ed6df
 begin
     matchId_debug = "EUW1_5572542603"
     region_debug = "EUROPE"
-    token_key_debug = "RGAPI-dba33984-3666-48d4-9ff9-b0c5fbd1664c"
+    token_key_debug = "RGAPI-2715c87a-4202-4815-b18c-55a138c58d4e"
 
     api_key_debug = LOLTools.get(ENV,"RIOT_TOKEN",token_key_debug)
 end;
 
-# ╔═╡ fcbcffc9-0e77-4583-b4f6-a5e1e5edf3f0
+# ╔═╡ cc621fd6-ec20-4957-b4c1-ddd196b47788
 
 
-# ╔═╡ 7cc9c3f3-7bcd-4eaa-8009-53d9c3c34ea0
+# ╔═╡ 211afa4c-67f9-4417-bc0d-5d9aed05392c
 begin
     #define summoner names
     summonerNames = Vector{String}(undef,0)
     summonerNames = split(
-            "Gh0stRider66,Yotagarasu,Drewku,PannaCòtta,SMZ KiMiMARO"
+            "LeoPe00, Reji, SRZ Cerozz, SRZ Mastro, SRZ Dante"
         ,",") |> 
     x->map(strip,x) |>
     x->map(strip,x) |>
@@ -351,20 +351,20 @@ begin
     matchIds = map(string,collect(matchIds))
     
     #print somestuff
-    @show first(sort(matchIds),3)
-    @show last(sort(matchIds),3);
+    #@show first(sort(matchIds),3)
+    #@show last(sort(matchIds),3);
     l=length(matchIds)
-	@show l
+	println("Numero di partite scaricate: $l")
     id2name
-end
+end;
 
-# ╔═╡ dd069d5c-bb67-4a8f-a16f-d85bfd3e2f03
-
-
-# ╔═╡ 8f0290f1-765c-4bc3-9db2-b13f15e39391
+# ╔═╡ 6849d8a3-20b1-4ad3-b46a-7f21d722e420
 
 
-# ╔═╡ cfdebb87-96dd-480f-99c2-c6407ad760b9
+# ╔═╡ b9684580-fe30-410a-ae67-0eb73a07052f
+
+
+# ╔═╡ d9e7f4e9-07b8-4443-8e44-0e44b6ea6b2a
 function getMatchDatasSplit(matchIds,range,instance;api_key_debug=api_key_debug,region_debug=region_debug,sleepTime=0.3)
 	local matchDatas1 = Array{NamedTuple}(undef,0)
 	if ispath(path*"saved.txt")
@@ -376,7 +376,7 @@ function getMatchDatasSplit(matchIds,range,instance;api_key_debug=api_key_debug,
 			println("Instance $instance : Skipping $mid")
 			continue
 		end
-		sleep(rand(collect(1.5:0.05:3.0))*sleepTime*2)
+		sleep(rand(collect(1.5:0.05:2.0))*sleepTime)
 		postmatchData = LOLTools.MatchV5.match_by_match_id(
 			api_key_debug,region_debug,mid
 		);
@@ -418,12 +418,12 @@ function getMatchDatasSplit(matchIds,range,instance;api_key_debug=api_key_debug,
 		println("Instance $instance : Added $mid")
 	end
 	return matchDatas1
-end
+end;
 
-# ╔═╡ 36e2a5ab-faa8-41a1-bb84-5366f601a633
-nparall=length(workers())
+# ╔═╡ ac2a4d63-c4e8-439d-9cfb-85066701d39d
+nparall=length(workers());
 
-# ╔═╡ 898f1d99-0a7f-415a-b250-eba85fac1f6e
+# ╔═╡ b3443aaf-1282-4aca-ab3c-9402d7d7a149
 data_splits = begin
 	local interval = collect(0:div(l,nparall):l)
 	local out = []
@@ -435,9 +435,9 @@ data_splits = begin
 		end
 	end
 	out
-end
+end;
 
-# ╔═╡ a04a3f88-8499-4f11-87ea-e98845d17f2e
+# ╔═╡ 168c90b7-738c-472d-93c8-0ae1cb5a1c62
 matchDatas = begin
 	matchDatas_ = Array{Vector{NamedTuple}}(undef,length(data_splits))
 	@sync for (i,range) in enumerate(data_splits)
@@ -448,7 +448,7 @@ matchDatas = begin
 	matchDatas = vcat(matchDatas_...)
 end;
 
-# ╔═╡ 22bfd7b0-3d52-4601-986f-76f37ded7b90
+# ╔═╡ 2e66a658-0153-4d77-a1aa-f8f01723aa51
 #=
 matchDatas = @sync begin
 	matchDatas1 = @async begin
@@ -548,13 +548,13 @@ matchDatas = @sync begin
 end
 =#
 
-# ╔═╡ 1a06cb88-a34f-42dd-9184-df36a6fe4cf3
+# ╔═╡ 65e9b76f-ed65-4f03-81e2-07e7815d29cb
 
 
-# ╔═╡ 42c0581e-64c9-4ba0-8b88-d5904f951bf7
+# ╔═╡ a6b5a5a2-4469-4f7a-8ce9-759d8ad724ff
 
 
-# ╔═╡ e503a377-a85e-4231-8e4b-21c1a2bb569a
+# ╔═╡ 28556cb1-4057-429c-87e6-dd920b3d1be7
 t_megaObjDf = Threads.@spawn begin
     megaObjDf = begin
         println("Creating a dataframe about objectives...")
@@ -575,9 +575,9 @@ t_megaObjDf = Threads.@spawn begin
         end
         megaObjDf
     end;
-end
+end;
 
-# ╔═╡ 44c02a31-f62d-4a85-bd4c-9c81c5ca4d22
+# ╔═╡ 4ca29886-4c50-4a41-91dc-75f6f3c98f38
 t_megaBansDf = Threads.@spawn begin
     megaBansDf = begin
         println("Creating a dataframe of bans...")
@@ -598,21 +598,21 @@ t_megaBansDf = Threads.@spawn begin
         end
         megaBansDf
     end;
-end
+end;
 
-# ╔═╡ a5fb84c1-4f2e-4bbc-81e1-07ac3d0be162
+# ╔═╡ e1635a84-fb37-4ee9-b707-e2a0f2586fd8
 # Pkg.add("Downloads")
 
-# ╔═╡ 009d1894-d10b-47ef-bee0-c6d4b5ba6de3
-mkpath("./assets/")
+# ╔═╡ 73a41963-bc56-4000-9b6f-8b8e0ea886e6
+mkpath("./assets/");
 
-# ╔═╡ 4c386d6c-26ea-44fd-97c2-1d4b4798a226
+# ╔═╡ ab09440a-8c82-4f7b-aaaf-d3489da536a4
 
 
-# ╔═╡ 1563818a-2c9f-409b-8895-79552ef94ff9
+# ╔═╡ e5244944-4b88-49cc-8feb-72d005ea9a5a
 # download("http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/runesReforged.json", "./assets/runesReforged.json")
 
-# ╔═╡ 5ea86f96-e020-4ad0-893b-90f44d4c3f41
+# ╔═╡ 7415f9f5-16f5-4d97-a02a-bef5d67fb2b9
 t_perksDataBase = Threads.@spawn begin
 
     println("Downloading a database of perks")
@@ -627,12 +627,12 @@ t_perksDataBase = Threads.@spawn begin
         reduce(vcat,_)
         vcat(_,x[:,1:4];cols=:union)
     end;
-end
+end;
 
-# ╔═╡ 60dd5aee-c3e4-494f-84d5-368abf32c1ea
+# ╔═╡ 74d42aa0-701f-4425-b558-d0015754ce54
 
 
-# ╔═╡ 35ecb16a-1f17-424c-986f-2035050394f2
+# ╔═╡ c3b017e9-3b39-4828-9bd2-015fb1ee125f
 t_megaPostmatchDf = Threads.@spawn begin
     megaPostmatchDf = begin
         println("Creating a dataframe of postmatch data...")
@@ -659,11 +659,14 @@ t_megaPostmatchDf = Threads.@spawn begin
             end
             append!(dfooo,dfoo)
         end
-        select!(dfooo,Not(:perks))
+        if length(matchDatas)>0
+            select!(dfooo,Not(:perks))
+        end
+        dfooo
     end;
-end
+end;
 
-# ╔═╡ 6aeaaf16-8f0c-4c00-abf2-7d201f792375
+# ╔═╡ 68dad6c6-fd81-424b-b2b7-59a183ce15b1
 t_megaTimelineDf = Threads.@spawn begin
     megaTimelineDf = begin
         println("Creating a dataframe of timeline player stats")
@@ -709,9 +712,9 @@ t_megaTimelineDf = Threads.@spawn begin
         end
         dfooo
     end;
-end
+end;
 
-# ╔═╡ 7db4b4ce-eff7-4e12-bf0a-ce4d7d13c76c
+# ╔═╡ 794134a6-36ee-4430-9be7-e76137aba8ab
 t_megaEventsDf = Threads.@spawn begin 
     megaEventsDf = begin
         println("Creating a dataframe of events")
@@ -721,14 +724,21 @@ t_megaEventsDf = Threads.@spawn begin
             return DataFrame(matchId = fill(x.matchId,l),myTeamId = x.myTeamId)
         end
         tmp = map( x -> [eventsListToDf(x.eventsContainer.eventsList) f(x)], matchDatas)
-        vcat(tmp...,cols=:union)
+        if length(tmp) > 0
+            vcat(tmp...,cols=:union)
+        else
+            return DataFrame()
+        end
     end;
 end;
 
-# ╔═╡ 62333865-0209-474a-a006-c589b81e3568
+# ╔═╡ d197ecc9-e0c2-4ae5-b1d9-a576b2aee593
+
+
+# ╔═╡ e9f59464-8afc-43cb-9e56-14d70ccec1bd
 perksDataBase = fetch(t_perksDataBase);
 
-# ╔═╡ 864dbbf4-93ab-4986-9288-8fa3906a29c7
+# ╔═╡ ef68678f-19a5-4029-a6e0-ae158b56c7b7
 t_megaPerksDf = Threads.@spawn begin
     #perks
     megaPerksDf = begin
@@ -774,58 +784,70 @@ t_megaPerksDf = Threads.@spawn begin
         end
         dfooo
     end;
-end
-
-# ╔═╡ 935143a3-c851-458e-b6b5-504660d7f146
-
-
-# ╔═╡ 6b7459c4-c965-4909-96d9-a994309b73f3
-begin
-	megaEventsDf = fetch(t_megaEventsDf);
-	eventTypes = unique(megaEventsDf,"type")[!,:type]
 end;
 
-# ╔═╡ b893652c-06d5-441c-8230-ab3c2181711b
+# ╔═╡ a1823b76-7854-4313-a471-e263e25301c5
+
+
+# ╔═╡ 4ba155c5-1ab5-4414-80e4-7f6b4edae99d
+begin
+	megaEventsDf = fetch(t_megaEventsDf);
+    if size(megaEventsDf)[1] != 0
+        eventTypes = unique(megaEventsDf,"type")[!,:type]
+    end
+end;
+
+# ╔═╡ b075eb12-d8dd-48bc-ae92-f7671da140b0
 # download("https://raw.communitydragon.org/json/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/", "./iconsList.json")
 
-# ╔═╡ 72ecc168-af7f-474a-8d30-4bd1135a1e4b
+# ╔═╡ bac89d72-1324-40eb-a1a3-22386db2bf44
 # iconsList = JSON3.read(read("./iconsList.json"))
 # mkpath("./assets/icons/")
 # for item in iconsList
 #   download("https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/$(item.name)","./assets/icons/$(item.name)")
 # end
 
-# ╔═╡ d52440d8-5f29-4dce-a003-d696be8f6ab8
+# ╔═╡ 79a78660-75d7-41fd-81fd-58b5eec7b7c1
 
 
-# ╔═╡ 0ff60016-3ac6-4006-9708-d7f33177791d
+# ╔═╡ 7d892f6f-c6c3-469b-8273-e221c4149b83
 begin
 	megaPerksDf_ = fetch(t_megaPerksDf)
 	
 	begin
-	    fromPerkIdToPerkName(database,id) = filter( (x-> x.id==(id)), database)[1,:key] 
-	    fromPerkIdToPerkIcon(database,id) = filter( (x-> x.id==(id)), database)[1,:icon]
-		megaPerksDf = deepcopy(megaPerksDf_)
-	    megaPerksDf[!,:icon] = map(
-			x-> "http://ddragon.leagueoflegends.com/cdn/img/" * fromPerkIdToPerkIcon(perksDataBase,x),
-			megaPerksDf[:,:perk]
-		) 
-	    megaPerksDf[!,:perk] = map(x->fromPerkIdToPerkName(perksDataBase,x),megaPerksDf[:,:perk]) 
-	    megaPerksDf[!,:style] = map(x->fromPerkIdToPerkName(perksDataBase,x),megaPerksDf[:,:style]) 
+        if size(megaPerksDf_)[1] != 0
+            fromPerkIdToPerkName(database,id) = filter( (x-> x.id==(id)), database)[1,:key] 
+            fromPerkIdToPerkIcon(database,id) = filter( (x-> x.id==(id)), database)[1,:icon]
+            megaPerksDf = deepcopy(megaPerksDf_)
+            megaPerksDf[!,:icon] = map(
+                x-> "http://ddragon.leagueoflegends.com/cdn/img/" * fromPerkIdToPerkIcon(perksDataBase,x),
+                megaPerksDf[:,:perk]
+            ) 
+            megaPerksDf[!,:perk] = map(x->fromPerkIdToPerkName(perksDataBase,x),megaPerksDf[:,:perk]) 
+            megaPerksDf[!,:style] = map(x->fromPerkIdToPerkName(perksDataBase,x),megaPerksDf[:,:style]) 
+		else
+			megaPerksDf = DataFrame()
+        end
 	end;
 end;
 
-# ╔═╡ a21dce33-dfeb-47e9-a10a-eaded3fd7548
+# ╔═╡ ff52adf3-6d31-4619-a801-3852f0a7217e
 macro name(x)
         string(x)
-    end
+end;
 
-# ╔═╡ 7ef720c6-a088-47fe-a682-5777ca4247d7
+# ╔═╡ 0f0187a3-5d17-43b7-b947-d9d662628973
 if ! isdir(path)
         mkpath(path)
-    end
+end;
 
-# ╔═╡ 83955e1a-c6b5-4403-b174-ff95d6da4f98
+# ╔═╡ 5ef4f823-1ba4-4967-911b-4b9fc3b452a9
+ENV["COLUMNS"] = 10000;
+
+# ╔═╡ ce817c39-cd4b-47f3-a1de-84bc554e324a
+
+
+# ╔═╡ 509eab8a-4ee3-4f4d-80ab-1c8e22283913
 if ispath(path*"saved.txt")
 	tmp = CSV.read(path*"megaTimelineDf.csv",DataFrame)
 	append!(tmp,fetch(t_megaTimelineDf),cols=:union)
@@ -846,12 +868,15 @@ if ispath(path*"saved.txt")
 	append!(tmp,fetch(t_megaObjDf),cols=:union)
 	megaObjDf = deepcopy(tmp)
 	CSV.write(path * "megaObjDf.csv",tmp)
-
-	tmp = CSV.read(path*"megaPostmatchDf.csv",DataFrame)
-	append!(tmp,fetch(t_megaPostmatchDf),cols=:union)
-	megaPostmatchDf = deepcopy(tmp)
-	CSV.write(path * "megaPostmatchDf.csv",tmp)
+    
 	
+	megaPostmatchDf = deepcopy(append!(CSV.read(path*"megaPostmatchDf.csv",DataFrame),fetch(t_megaPostmatchDf),cols=:union))
+	CSV.write(path * "megaPostmatchDf.csv",megaPostmatchDf)
+	
+	tmp = CSV.read(path*"megaPerksDf.csv",DataFrame)
+	append!(megaPerksDf,tmp,cols=:union)
+    CSV.write(path * "megaPerksDf.csv",megaPerksDf)
+    
 	saved = split(read(path*"saved.txt",String))
 	write(path * "saved.txt", join(union(matchIds,saved),"\n"))
 else
@@ -871,47 +896,53 @@ else
 	write(path * "saved.txt", join(matchIds,"\n"))
 end
 
-# ╔═╡ e8145f2c-64d0-4e93-bcc7-1b9cbf4a15a7
+# ╔═╡ 7ac79a39-781b-48ad-8728-50ea3f54512e
 
 
-# ╔═╡ 525bbd54-67e5-49d0-970e-1f3a7eb289e3
+# ╔═╡ 216770d9-cd9d-4601-aff8-dbd09c99cc3d
 
 
-# ╔═╡ 94561e84-a974-47ce-9a12-707d479b51a3
+# ╔═╡ f6b6d25f-5318-4bfe-a6b0-bc784157b86c
+begin
+	filteredMatchIds = []
+	local matches = groupby(megaPostmatchDf,:matchId)
+	local ids = keys(matches)
+	for id in ids
+		tmp = @chain matches[id] begin
+			subset(:puuid => ByRow(x-> x in puuids))
+		end
+		if size(tmp)[1]>=4
+			push!(filteredMatchIds,id[1])
+		end
+	end
+end
+
+# ╔═╡ 1422cdb7-3d75-4c44-96b1-5f4b52a2f01c
 
 
-# ╔═╡ 1dde1034-3aa1-48fb-b6e1-5de89a6300d6
-
-
-# ╔═╡ 6ad6369e-5ae1-4c37-b384-a057f7e960cb
-
-
-# ╔═╡ 5336aa29-4e2f-48cd-9f25-6eb7fb519577
-
-
-# ╔═╡ 0ef95ade-2bc4-450c-a06c-d9bdbdc1348f
+# ╔═╡ 99be26ef-8806-4d85-b95e-4d57f1ab169a
 #display(first(megaPostmatchDf,3))
     #display(first(megaTimelineDf,3))
     #display(first(megaObjDf,3))
     #display(first(megaPerksDf,3))
     #display(first(megaBansDf,3))
 
-# ╔═╡ 40b9b7ad-95b7-4eb3-9d40-217a7ddffba8
+# ╔═╡ c1e27a18-186d-477b-9925-c3071ee0e014
 # Pkg.add("Images")
 
-# ╔═╡ 76d2dabf-9ab2-42ee-8951-e8b8390f04a1
+# ╔═╡ 183ae60e-2594-4ab8-bbc9-87d7f361a89f
 # Pkg.add("ImageView")
 
-# ╔═╡ e4b4836d-bb94-4c6d-92c9-14a0243f9449
+# ╔═╡ 3bf004c6-ff4c-4c1e-93ee-5e4fa0595c61
 
 
-# ╔═╡ 909e930a-1bba-405a-8266-a7ffa6f4facd
+# ╔═╡ a87bc98a-0e76-4d0d-870f-f9159f433732
 comps_img = begin
     #using ImageView
 
     grps = @chain megaPostmatchDf begin
         transform(:puuid => ByRow(x-> x in puuids) => :analyze) #preprocess
-        sort([:analyze,:win];rev=true,view=true,alg=Base.Sort.InsertionSort) #fast sort
+        sort([:analyze,:win];rev=true,view=false,alg=Base.Sort.InsertionSort) #fast sort
         groupby([:matchId],sort=false)
         #min team members
         filter( x-> (sum(x[1:5,:analyze])>=4), _)
@@ -976,7 +1007,10 @@ comps_img = begin
     vcat(imgs...)   
 end
 
-# ╔═╡ 4e9629d7-c06d-45e3-90fb-618a5a22839f
+# ╔═╡ 6cacb67f-c0d5-411a-97e1-d87e548f4404
+
+
+# ╔═╡ 0d5cec3f-424e-4267-a8e9-98c909bed666
 begin
     #PARAMS
     minCount = min(
@@ -986,8 +1020,8 @@ begin
     #END
 
 
-    megaPostmatchDf[!,:kda] = (megaPostmatchDf[!,:kills] .+ megaPostmatchDf[!,:assists])./megaPostmatchDf[!,:deaths];
     local data = @chain megaPostmatchDf begin 
+        transform([:kills,:deaths,:assists] => ByRow((k,d,a) -> (k+a)/(d==0 ? 1 : d)) => :kda)
         filter( x-> x.puuid in puuids, _)
         groupby([:puuid,:championName])
         transform(nrow => :count)
@@ -1091,17 +1125,21 @@ begin
     pool
 end
 
-# ╔═╡ 75c081ec-bba1-4e77-9a35-f8100fbe5aa1
-comps_img |> save(path*"comps.png");
+# ╔═╡ b77e4a2e-122b-4414-a36d-9be68bacf422
 
-# ╔═╡ c24d98c8-6d2d-4454-b960-85b1e5f5ccdc
+
+# ╔═╡ d8801bab-b3d1-4aae-aaf1-8881f7ee897b
+
+
+# ╔═╡ dd712e71-dad9-485e-8937-6a4a633a12df
 playersTL = @chain megaTimelineDf begin
+	subset(:matchId => ByRow(x->x in filteredMatchIds))
 	subset(:puuid => ByRow(x-> x in puuids))
 	transform([:puuid] => ByRow(x->id2name[x]), renamecols = false)
 	transform( :timestamp => x->x/60/1000, renamecols = false)
 end;
 
-# ╔═╡ ff6a8809-b61e-4d3f-a5ae-2f30e2253879
+# ╔═╡ 7f06403f-2b9b-4de3-b5dc-ad65a2137703
 asd = @vlplot(
   data = playersTL[!,[:timestamp,:puuid,:matchId,
 	:totalGold,
@@ -1150,17 +1188,17 @@ asd = @vlplot(
 	}
 )
 
-# ╔═╡ 511bb495-58ea-412b-a9f9-17c303d25577
+# ╔═╡ d13caa03-f605-4110-a90f-4247a8cbee0c
 asd |> save(path * "goldPlot.html")
 
-# ╔═╡ 717f7300-4c61-4e1c-9f30-1a499fe36bb5
-data = @chain megaPostmatchDf begin
+# ╔═╡ 65f17dc8-40aa-4ae6-b106-03e466422849
+fhdf = @chain megaPostmatchDf begin
     filter(x->x.puuid in puuids, _)
     transform(:puuid => ByRow(x-> id2name[x]); renamecols=false)
 end;
 
-# ╔═╡ 2851d271-5811-4a79-84fd-a01b056953c6
-firstHist = data |> @vlplot(repeat={column=[:firstBloodKill, :firstBloodAssist, :firstTowerKill, :firstTowerAssist]}
+# ╔═╡ 2bc16931-9d46-4f8c-9967-3ac7fbd78ba4
+firstHist = fhdf |> @vlplot(repeat={column=[:firstBloodKill, :firstBloodAssist, :firstTowerKill, :firstTowerAssist]}
 ) + @vlplot(
     width = 200,
     height = 300,
@@ -1187,28 +1225,31 @@ firstHist = data |> @vlplot(repeat={column=[:firstBloodKill, :firstBloodAssist, 
     }
 )
 
-# ╔═╡ 913a99e6-dd45-40b6-bf07-b4f32bdf0360
+# ╔═╡ 1481551d-195a-4c4b-b0ea-7c48757f9752
 firstHist |> save(path * "firsthist.html")
 
-# ╔═╡ 69f00717-17ec-47e4-b90a-df9d66c944a9
+# ╔═╡ bd03ce96-aceb-4a0f-b4f1-056c7fb76874
 #begin
 #	ENV["COLUMNS"] = 3000
 #	ENV["LINES"] = 20
 #end
 
-# ╔═╡ 418c6af2-d4b6-43fc-9d42-4fe3354811de
-function enemyPID2POSITION(matchId,victimId)
-	filt = (megaPostmatchDf[!,[:matchId]] .== matchId .&& megaPostmatchDf[!,:participantId] .== victimId)
-	megaPostmatchDf[filt[!,1],:teamPosition]
+# ╔═╡ ce753387-7e0e-4c0b-90b2-b1fb6f4cfcd4
+function enemyPID2POSITION(matchId,participantId)
+	if participantId === missing
+		return missing
+	end
+	if !(participantId in collect(1:10))
+		return "NEUTRAL"
+	end
+	filt = (megaPostmatchDf[!,[:matchId]] .== matchId .&& megaPostmatchDf[!,:participantId] .== participantId)	
+	return megaPostmatchDf[filt[!,1],:teamPosition][1]
 end
 
-# ╔═╡ 3ed85969-2cca-4e63-ba88-bcdb7a3d00c9
+# ╔═╡ 4d00e9c5-6066-463c-bf2a-cb588b626153
 
 
-# ╔═╡ a2da76c8-6be3-4dd8-a832-cfe783fc58e0
-
-
-# ╔═╡ 0421e6da-c9b0-4df3-b495-d064572d6579
+# ╔═╡ 94e2a35c-1779-4be8-8e29-30840e4a01a3
 firstBloodDf = @chain megaEventsDf begin
 	subset(:type => ByRow(x->x=="CHAMPION_KILL"), skipmissing = true)
 	_[!,Not([:victimDamageReceived,:victimDamageDealt])]
@@ -1233,18 +1274,15 @@ firstBloodDf = @chain megaEventsDf begin
 	groupby(:matchId)
 	map(x->first(x,2),collect(_))
 	vcat(_...)
-	transform([:matchId,:victimId] => ByRow((x,y)-> enemyPID2POSITION(x,y)) => [:approxDeathLane])
+	transform([:matchId,:victimId] => ByRow((x,y)-> enemyPID2POSITION(x,y)) => :approxDeathLane)
 	#transform([:victimId] => ByRow(x-> x >5 ? x-5 : x); renamecols=false)
 	transform(:approxDeathLane => ByRow( x -> (x=="UTILITY" ? "BOTTOM" : x) ) ; renamecols = false)
 end;
 
-# ╔═╡ 488269f4-ab0d-4f2f-9c98-2fbc311c67e7
+# ╔═╡ 5cfa9547-4e1f-4ef5-be43-630336af4f50
 firstBloodDf[!,:timestamp] = firstBloodDf[!,:timestamp]/1000/60;
 
-# ╔═╡ 7be7e532-d40a-4548-b3e6-fb85457e4e75
-firstBloodDf
-
-# ╔═╡ 220b6841-023f-4733-afab-e03ab04910b3
+# ╔═╡ cd97b858-b3b6-4f73-aea2-d22996a94de8
 #=
 Abbiamo tutte le first blood dei giocatori del team in esame.
 Voglio sapere quando le fanno e dove le fanno per determinare la lane più gankata.
@@ -1292,38 +1330,40 @@ ganksWithKillsHist = @vlplot(
 			type = "N"
 		}
 	}
-) 
+)
 
-# ╔═╡ 7ed768e4-796d-4c5a-bbe9-e98413cad1c4
+# ╔═╡ 81018431-c069-47c5-87e2-ba726ca76d30
 ganksWithKillsHist |> save(path*"ganksWithKillsHist.html")
 
-# ╔═╡ dbace6ff-958c-4622-a8fd-5b0c5dbe3a68
+# ╔═╡ 75a05ef1-8ee9-408c-94aa-d6cbabcacff6
 megaPositionDf = @chain megaTimelineDf[!,[:participantId,:x,:y,:myTeamId,:matchId,:timestamp,:currentGold]] begin
+	subset(:matchId => ByRow(x->x in filteredMatchIds))
 	filter(x-> 0+5*(x.myTeamId-100)/100< x.participantId <=5*x.myTeamId/100,_)
 	transform(:timestamp => ByRow(x->x/1000/60); renamecols = false)
 	transform(:y => ByRow(x->14870-x); renamecols = false)
 	groupby(:matchId)
 end;
 
-# ╔═╡ bc30c32d-60c1-4175-bcbd-ba61cba73566
+# ╔═╡ b5ca5c0a-98f5-47bf-bb3b-93eae792bce0
 begin
 	using Clustering
 	ScikitLearn.@sk_import cluster: DBSCAN
 	ScikitLearn.@sk_import preprocessing: StandardScaler
+	l_MPDf = length(megaPositionDf)
 	full100 = vcat(
 		[filter(x->(x.myTeamId == 100 && x.timestamp < 25),
-		megaPositionDf[i]) for i in 1:length(megaPositionDf)]...
+		megaPositionDf[i]) for i in 1:l_MPDf]...
 	)
 	full200 = vcat(
 		[filter(x->(x.myTeamId == 200 && x.timestamp < 25),
-		megaPositionDf[i]) for i in 1:length(megaPositionDf)]...
+		megaPositionDf[i]) for i in 1:l_MPDf]...
 	)
 end;
 
-# ╔═╡ 3fa6096f-008d-48be-aab7-7cee37ff9f9d
+# ╔═╡ 23cf57bc-c219-46b8-b55f-4e4afac0a62d
 #timestamp_slider = @bind timeSel PlutoUI.Slider(0:1:30,1,true)
 
-# ╔═╡ fe13ce8e-d4c6-4bb3-8d52-d9f210a07bf1
+# ╔═╡ f8205571-de51-4709-9ff2-8b95e9158601
 #=begin
 	using Clustering
 	full = vcat([filter(x->(true && x.timestamp < 25),megaPositionDf[i]) for i in 1:length(megaPositionDf)]...)
@@ -1360,13 +1400,13 @@ end;
 	end
 end;=#
 
-# ╔═╡ 2d1f499d-a6d9-4549-8932-759394bc0680
-cluster_size_coeff = 9 /l
+# ╔═╡ 82592d3f-886c-4e7c-97fd-a763e4fec8fc
+@bind cluster_size_coeff  PlutoUI.Slider(0.05:0.001:0.3,0.15,true)
 
-# ╔═╡ d937f840-3aea-45d1-862d-0b237cecdce5
-maximum_distance = @bind eps  PlutoUI.Slider(0.15:0.001:0.3,0.25,true)
+# ╔═╡ 2d630198-bdb9-4f4f-be50-6388fc5ca67b
+maximum_distance = @bind eps  PlutoUI.Slider(0.15:0.001:0.5,0.25,true)
 
-# ╔═╡ 1ce9abbf-5ff3-40b3-8c3c-ebba196a4066
+# ╔═╡ f0b48acc-de9a-466d-b8b0-287d4720a518
 #=begin
 	mappa =load("./assets/map11.png")
 	local color1 = 0
@@ -1444,7 +1484,7 @@ end=#
 	}
 )=#
 
-# ╔═╡ 926b5603-e83f-413a-a920-10d5d8af4a4f
+# ╔═╡ 8747c6ab-e567-4558-a0f5-e2868ed5e27c
 begin
 	posPredDfs_100 = []
 	grps_100 = groupby(full100,[:timestamp])
@@ -1460,10 +1500,10 @@ begin
 			mapper = ScikitLearn.DataFrameMapper([([:x,:y], scaler)]);
 			training_data_sk = ScikitLearn.fit_transform!(mapper, copy(Xes))
 		end
-		dbscan = DBSCAN(eps=eps,min_samples = l*cluster_size_coeff)
+		dbscan = DBSCAN(eps=eps,min_samples = l_MPDf*cluster_size_coeff)
 		ScikitLearn.fit!(dbscan, training_data_sk)
 		y_pred = dbscan.labels_
-		grp = hcat(Xes,DataFrame(pred = y_pred, timestamp = groupnames[i][1]))
+		grp = hcat(Xes,DataFrame(matchId = grp[!,:matchId],pred = y_pred, timestamp = groupnames[i][1]))
 		push!(posPredDfs_100,grp)
 	end
 
@@ -1481,73 +1521,336 @@ begin
 			mapper = ScikitLearn.DataFrameMapper([([:x,:y], scaler)]);
 			training_data_sk = ScikitLearn.fit_transform!(mapper, copy(Xes))
 		end
-		dbscan = DBSCAN(eps=eps,min_samples = l*cluster_size_coeff)
+		dbscan = DBSCAN(eps=eps,min_samples = l_MPDf*cluster_size_coeff)
 		ScikitLearn.fit!(dbscan, training_data_sk)
 		y_pred = dbscan.labels_
-		grp = hcat(Xes,DataFrame(pred = y_pred, timestamp = groupnames[i][1]))
+		grp = hcat(Xes,DataFrame(matchId = grp[!,:matchId],pred = y_pred, timestamp = groupnames[i][1]))
 		push!(posPredDfs_200,grp)
 	end
 end
 
-# ╔═╡ 24f884dc-901c-4fd2-b4ab-6e965fe994be
-vcat(posPredDfs_100...) |> @vlplot(
-	title = "When in blue side",
+# ╔═╡ 675bca64-7a1a-4a6c-b433-38dcb3a183cb
+vcat(posPredDfs_100...)
+
+# ╔═╡ b2d8c0fe-25b1-4ec9-80ac-36536efedd6b
+if size(posPredDfs_100)[1]!=0
+    pos100 = vcat(posPredDfs_100...) |> @vlplot(
+        title = "When in red side",
+        mark = {
+            type = :point,
+            size = 100,
+            opacity = 0.4,
+			filled=true
+        },
+        encoding = {
+            x = {
+                field = :x,
+                type = "Q"
+            },
+            y = {
+                field = :y,
+                type = "Q"
+            },
+            color = {
+                field = :pred,
+                type = "N"
+            },
+            shape = {
+                field = :matchId,
+                type = "N"
+            },
+            facet = {
+                field = [:timestamp],
+                type = "ordinal",
+                columns = 5
+            }
+        }
+
+    )
+end
+
+# ╔═╡ f11a945b-75c8-4ef4-b2ba-535a804e3462
+if size(posPredDfs_100)[1]!=0
+    pos100 |> save(path*"pos100.html")
+end
+
+# ╔═╡ 27b7eb9a-0d84-47bd-a92c-9550324fcd68
+if size(posPredDfs_200)[1]!=0
+    pos200 = vcat(posPredDfs_200...) |> @vlplot(
+        title = "When in red side",
+        mark = {
+            type = :point,
+            size = 100,
+            opacity = 0.4,
+			filled=true
+        },
+        encoding = {
+            x = {
+                field = :x,
+                type = "Q"
+            },
+            y = {
+                field = :y,
+                type = "Q"
+            },
+            color = {
+                field = :pred,
+                type = "N"
+            },
+            shape = {
+                field = :matchId,
+                type = "N"
+            },
+            facet = {
+                field = [:timestamp],
+                type = "ordinal",
+                columns = 5
+            }
+        }
+
+    )
+end
+
+# ╔═╡ 87fbc99d-0641-4728-abb3-687f959e6c2d
+if size(posPredDfs_200)[1]!=0
+    pos200 |> save(path*"pos200.html")
+end
+
+# ╔═╡ 4a66ac84-e9ae-465f-ba9c-c0000790ce13
+#preprocess(CSV issue)
+if isa(megaEventsDf[!,:assistingParticipantIds],CSV.PooledVector)
+	local col = []
+	for i in collect(1:size(megaEventsDf[!,:assistingParticipantIds])[1])
+		
+		if !(megaEventsDf[i,:assistingParticipantIds]===missing)
+ 			push!(col,eval(Meta.parse.(megaEventsDf[i,:assistingParticipantIds]))) 
+		else
+			push!(col,missing)
+		end
+	end
+	tst[1] = col
+	megaEventsDf[!,:assistingParticipantIds] = col
+end
+
+# ╔═╡ ef6d2bc2-0791-4f9d-8a93-c57334018d33
+supportParticipationDf = @chain megaEventsDf begin#TO BE PERFECTED
+	subset(:type => x-> x.=="CHAMPION_KILL")
+
+	##
+	subset(:matchId => ByRow(x->x in filteredMatchIds))
+	##
+
+	select(_, [any(!ismissing,_[!,col]) ? true : false for col in names(_)])
+	#show only kills of my team
+	subset([:myTeamId, :killerId] =>
+	ByRow(
+		(ID,k) ->
+			if (ID == 100 && k<=5) || (ID == 200 && k>5)
+				return true
+			else
+				return false
+			end
+	))
+	transform([:matchId,:victimId] => ByRow((x,y)-> enemyPID2POSITION(x,y)) => :victimId)
+	transform([:matchId,:killerId] => ByRow((x,y)-> enemyPID2POSITION(x,y)) => :killerId)
+	#missing
+	subset(:assistingParticipantIds => ByRow(x-> x===missing ? false : true))
+	transform([:matchId,:assistingParticipantIds] => ByRow((x,y)-> enemyPID2POSITION.(x,y)) => :assistingParticipantIds)
+	#get rid of botlane 2vs2 kills
+	subset([:assistingParticipantIds,:killerId] => ByRow(
+		(a,k) ->
+			if "UTILITY" == k || "UTILITY" in a
+				return true
+			else
+				return false
+			end
+	))
+	subset([:assistingParticipantIds,:killerId] => ByRow(
+		(a,k) ->
+			if ("BOTTOM" == k || "UTILITY" == k) && !("JUNGLE" in a)
+				return false
+			else
+				return true
+			end
+	))
+	#convert time to mins
+	transform(:timestamp => x->x ./ 1000 ./ 60; renamecols =false)
+	subset(:timestamp => x->x .< 18)
+end;
+
+# ╔═╡ 56b649a8-b340-497c-aad6-982a76744c0e
+#=
+Abbiamo tutte le first blood dei giocatori del team in esame.
+Voglio sapere quando le fanno e dove le fanno per determinare la lane più gankata.
+assistingPartcipantsIds -> teamPosition
+killerId -> teamPosition
+Ma forse non ci serve la firstBlood, in realtà vogliamo sapere quali sono le lane più gankate e quando
+=#
+supportParticipationHist = @vlplot(
+	title = "Support Participation Histogram",
+	width = 600,
+	height = 200,
+	data = supportParticipationDf,
 	mark = {
-		type = :circle,
-		size = 100,
-		opacity = 0.4
+		type=:circle,
+		opacity=0.6,
+		tooltip = true
 	},
 	encoding = {
 		x = {
-			field = :x,
-			type = "Q"
-		},
-		y = {
-			field = :y,
+			field = :timestamp,
+			bin = {maxbins=30},
 			type = "Q"
 		},
 		color = {
-			field = :pred,
+			field = :myTeamId,
+			type = "nominal"
+		},
+		row = {
+			field = :myTeamId,
 			type = "N"
 		},
-		facet = {
-			field = [:timestamp],
-			type = "ordinal",
-			columns = 5
+		size = {
+			field = :timestamp,
+			aggregate = "count",
+			scale = {
+				type = "threshold",
+				domain = [1,2,3,6,8],
+				range = [10,20,40,160,320,640]
+			}
 		}
 	}
+)
+
+# ╔═╡ 30c24b15-9015-4a55-b640-a0df1a891508
+supportParticipationHist |> save(path*"suppKP.html")
+
+# ╔═╡ 2d879782-d73c-450a-885c-8aa161ab65a9
+midlanerRecallsDf = @chain megaEventsDf begin
+	#wrangling
+	subset(:type => x-> x.=="ITEM_PURCHASED")
+	select(_, [any(!ismissing,_[!,col]) ? true : false for col in names(_)])
+	innerjoin(_,megaPostmatchDf[!,[:participantId,:matchId,:puuid]],
+		on=[:matchId,:participantId]
+		;matchmissing=:notequal,makeunique=true)
+	
+	#filtering
+	subset(:puuid => ByRow(x-> x in puuids))
+	#subset(:matchId => ByRow(x->x in filteredMatchIds))
+	
+
+	subset([:myTeamId, :participantId] =>
+	ByRow(
+		(ID,p) ->
+			if (ID == 100 && p<=5) || (ID == 200 && p>5)
+				return true
+			else
+				return false
+			end
+	))
+	#id2name
+	transform([:matchId,:participantId] => ByRow((x,y)-> enemyPID2POSITION(x,y)) => :participantId)
+	#mid laner
+	subset(:participantId => ByRow(x->x=="MIDDLE"))
+	transform(:timestamp => x->x ./ 1000 ./ 60; renamecols =false)
+	subset(:timestamp => x-> 30 .>  x .> 2)
+end;
+
+# ╔═╡ a240a9fb-e54c-41e1-a8cb-0f02df0008f1
+midlanerRecallsHist = @vlplot(
+	title = "Midlaner recalls histogram",
+	height=300,
+	width=800,
+	data = midlanerRecallsDf,
+	layer = 
+	[
+		{
+		mark={
+			type="bar",
+			#tooltip=true
+		},
+		encoding = {
+			x = {
+				field = :timestamp,
+				type="quantitative",
+				bin = {step=0.25}
+			},
+			y = {
+				field = :timestamp,
+				aggregate ="count",
+				stack = true
+			},
+			color = {
+				:myTeamId,
+				type="N"
+				}
+			}
+		},
+		{
+		mark={
+			type="line",
+			tooltip=true
+		},
+		encoding = {
+			x = {
+				field = :timestamp,
+				type="quantitative",
+				bin = {maxbins=30}
+			},
+			y = {
+				field = :timestamp,
+				aggregate ="count"
+			},
+			color = {
+				:myTeamId,
+				type="N"
+				}
+		}
+		}
+	]
 	
 )
 
-# ╔═╡ d0dbf676-cb4e-4f42-9fec-705c3cfeac4b
-vcat(posPredDfs_200...) |> @vlplot(
-	title = "When in red side",
-	mark = {
-		type = :circle,
-		size = 100,
-		opacity = 0.4
-	},
-	encoding = {
-		x = {
-			field = :x,
-			type = "Q"
+# ╔═╡ 05cf9adb-922a-485b-8f5b-0f34d64f7774
+midlanerRecallsHist |> save(path*"midlanerRecallsHist.html")
+
+# ╔═╡ daf20829-540f-4757-9351-162cc0ca2677
+@vlplot(#TBD
+	height=200,
+	width=600,
+	data = midlanerRecallsDf,
+	mark={
+			type="area",
+			tooltip=true
 		},
-		y = {
-			field = :y,
-			type = "Q"
-		},
-		color = {
-			field = :pred,
-			type = "N"
-		},
-		facet = {
-			field = [:timestamp],
-			type = "ordinal",
-			columns = 5
+		encoding = {
+			x = {
+				field = :timestamp,
+				type="quantitative",
+				bin = {maxbins=60}
+			},
+			y = {
+				field = :timestamp,
+				aggregate ="count",
+			}
 		}
-	}
-	
-)
+) |> save(path*"peaks.html")
+
+# ╔═╡ f077cf3b-92bf-4dec-a217-f8cdef08f2b9
+
+		
+
+# ╔═╡ 634a57e2-051e-4797-a5ad-193661b46334
+
+
+# ╔═╡ 5847b0ac-d38e-4b58-b8fb-85b36c873bef
+
+
+# ╔═╡ 13223b99-435f-4481-ba59-840d5f570879
+
+
+# ╔═╡ 80e5f43b-2c8a-4913-b6da-d3e65c670b6e
+
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1574,7 +1877,7 @@ VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"
 
 [compat]
 CSV = "~0.9.11"
-Chain = "~0.4.9"
+Chain = "~0.4.10"
 Clustering = "~0.14.2"
 DataFrames = "~1.3.0"
 DataFramesMeta = "~0.10.0"
@@ -1584,7 +1887,7 @@ ImageDraw = "~0.2.5"
 Images = "~0.25.0"
 JSON3 = "~1.9.2"
 LOLTools = "~0.1.3"
-PlutoUI = "~0.7.21"
+PlutoUI = "~0.7.22"
 Query = "~1.0.0"
 ScikitLearn = "~0.6.4"
 VegaLite = "~2.6.0"
@@ -1672,9 +1975,9 @@ uuid = "aafaddc9-749c-510e-ac4f-586e18779b91"
 version = "0.2.2"
 
 [[deps.Chain]]
-git-tree-sha1 = "06fb4f12fc35c9048a52d5b79c64e1d736a228c7"
+git-tree-sha1 = "339237319ef4712e6e5df7758d0bccddf5c237d9"
 uuid = "8be319e6-bccf-4806-a6f7-6fae938471bc"
-version = "0.4.9"
+version = "0.4.10"
 
 [[deps.ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
@@ -1683,10 +1986,10 @@ uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
 version = "1.11.2"
 
 [[deps.ChangesOfVariables]]
-deps = ["LinearAlgebra", "Test"]
-git-tree-sha1 = "9a1d594397670492219635b35a3d830b04730d62"
+deps = ["ChainRulesCore", "LinearAlgebra", "Test"]
+git-tree-sha1 = "bf98fa45a0a4cee295de98d4c1462be26345b9a1"
 uuid = "9e997f8a-9a97-42d5-a9f1-ce6bfc15e2c0"
-version = "0.1.1"
+version = "0.1.2"
 
 [[deps.Clustering]]
 deps = ["Distances", "LinearAlgebra", "NearestNeighbors", "Printf", "SparseArrays", "Statistics", "StatsBase"]
@@ -1780,9 +2083,9 @@ version = "0.10.0"
 
 [[deps.DataStructures]]
 deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "7d9d316f04214f7efdbb6398d545446e246eff02"
+git-tree-sha1 = "3daef5523dd2e769dad2365274f760ff5f282c7d"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.10"
+version = "0.18.11"
 
 [[deps.DataValueInterfaces]]
 git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"
@@ -2361,9 +2664,9 @@ version = "0.1.1"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "Dates", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "Markdown", "Random", "Reexport", "UUIDs"]
-git-tree-sha1 = "b68904528fd538f1cb6a3fbc44d2abdc498f9e8e"
+git-tree-sha1 = "565564f615ba8c4e4f40f5d29784aa50a8f7bbaf"
 uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.21"
+version = "0.7.22"
 
 [[deps.PooledArrays]]
 deps = ["DataAPI", "Future"]
@@ -2705,89 +3008,106 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 """
 
 # ╔═╡ Cell order:
-# ╠═3803bad0-d0b5-4a19-9d42-22843ecafa15
-# ╠═6991e490-2585-436b-836b-538b4d254f5d
-# ╠═88488ca7-db74-4bb7-8df9-d07052c9544a
-# ╠═41118218-264d-4f78-9850-ffbe6adb674d
-# ╠═7646ba26-b293-4980-9bcf-0254b1e26394
-# ╠═9901c2e1-d510-4c13-82c1-e2852027bf1b
-# ╠═7ce70e9d-97ed-4d8c-a2ca-214fd867bdac
-# ╠═b3a2acf8-46ac-47bb-9e65-e90994174789
-# ╠═b9312465-6997-4bc6-b5fb-c1012c42d181
-# ╠═240f387f-c8fd-46ea-b955-17f470c9c172
-# ╠═47cd4d11-5fe7-46ba-b91a-36261fa83057
-# ╠═fcbcffc9-0e77-4583-b4f6-a5e1e5edf3f0
-# ╠═7cc9c3f3-7bcd-4eaa-8009-53d9c3c34ea0
-# ╠═dd069d5c-bb67-4a8f-a16f-d85bfd3e2f03
-# ╠═8f0290f1-765c-4bc3-9db2-b13f15e39391
-# ╠═cfdebb87-96dd-480f-99c2-c6407ad760b9
-# ╠═36e2a5ab-faa8-41a1-bb84-5366f601a633
-# ╠═898f1d99-0a7f-415a-b250-eba85fac1f6e
-# ╠═a04a3f88-8499-4f11-87ea-e98845d17f2e
-# ╟─22bfd7b0-3d52-4601-986f-76f37ded7b90
-# ╠═1a06cb88-a34f-42dd-9184-df36a6fe4cf3
-# ╠═42c0581e-64c9-4ba0-8b88-d5904f951bf7
-# ╠═e503a377-a85e-4231-8e4b-21c1a2bb569a
-# ╠═44c02a31-f62d-4a85-bd4c-9c81c5ca4d22
-# ╠═a5fb84c1-4f2e-4bbc-81e1-07ac3d0be162
-# ╠═009d1894-d10b-47ef-bee0-c6d4b5ba6de3
-# ╠═4c386d6c-26ea-44fd-97c2-1d4b4798a226
-# ╠═1563818a-2c9f-409b-8895-79552ef94ff9
-# ╠═5ea86f96-e020-4ad0-893b-90f44d4c3f41
-# ╠═60dd5aee-c3e4-494f-84d5-368abf32c1ea
-# ╠═35ecb16a-1f17-424c-986f-2035050394f2
-# ╠═6aeaaf16-8f0c-4c00-abf2-7d201f792375
-# ╠═7db4b4ce-eff7-4e12-bf0a-ce4d7d13c76c
-# ╠═62333865-0209-474a-a006-c589b81e3568
-# ╠═864dbbf4-93ab-4986-9288-8fa3906a29c7
-# ╠═935143a3-c851-458e-b6b5-504660d7f146
-# ╠═6b7459c4-c965-4909-96d9-a994309b73f3
-# ╠═b893652c-06d5-441c-8230-ab3c2181711b
-# ╠═72ecc168-af7f-474a-8d30-4bd1135a1e4b
-# ╠═d52440d8-5f29-4dce-a003-d696be8f6ab8
-# ╠═0ff60016-3ac6-4006-9708-d7f33177791d
-# ╠═a21dce33-dfeb-47e9-a10a-eaded3fd7548
-# ╠═7ef720c6-a088-47fe-a682-5777ca4247d7
-# ╠═83955e1a-c6b5-4403-b174-ff95d6da4f98
-# ╠═e8145f2c-64d0-4e93-bcc7-1b9cbf4a15a7
-# ╠═525bbd54-67e5-49d0-970e-1f3a7eb289e3
-# ╠═94561e84-a974-47ce-9a12-707d479b51a3
-# ╠═1dde1034-3aa1-48fb-b6e1-5de89a6300d6
-# ╠═6ad6369e-5ae1-4c37-b384-a057f7e960cb
-# ╠═5336aa29-4e2f-48cd-9f25-6eb7fb519577
-# ╠═0ef95ade-2bc4-450c-a06c-d9bdbdc1348f
-# ╠═40b9b7ad-95b7-4eb3-9d40-217a7ddffba8
-# ╠═76d2dabf-9ab2-42ee-8951-e8b8390f04a1
-# ╠═7def8611-958a-4df7-ba5c-f57581218204
-# ╠═e4b4836d-bb94-4c6d-92c9-14a0243f9449
-# ╠═909e930a-1bba-405a-8266-a7ffa6f4facd
-# ╠═4e9629d7-c06d-45e3-90fb-618a5a22839f
-# ╠═75c081ec-bba1-4e77-9a35-f8100fbe5aa1
-# ╠═c24d98c8-6d2d-4454-b960-85b1e5f5ccdc
-# ╠═ff6a8809-b61e-4d3f-a5ae-2f30e2253879
-# ╠═511bb495-58ea-412b-a9f9-17c303d25577
-# ╠═717f7300-4c61-4e1c-9f30-1a499fe36bb5
-# ╠═2851d271-5811-4a79-84fd-a01b056953c6
-# ╠═913a99e6-dd45-40b6-bf07-b4f32bdf0360
-# ╠═69f00717-17ec-47e4-b90a-df9d66c944a9
-# ╠═418c6af2-d4b6-43fc-9d42-4fe3354811de
-# ╠═3ed85969-2cca-4e63-ba88-bcdb7a3d00c9
-# ╠═a2da76c8-6be3-4dd8-a832-cfe783fc58e0
-# ╠═0421e6da-c9b0-4df3-b495-d064572d6579
-# ╠═488269f4-ab0d-4f2f-9c98-2fbc311c67e7
-# ╠═7be7e532-d40a-4548-b3e6-fb85457e4e75
-# ╠═220b6841-023f-4733-afab-e03ab04910b3
-# ╠═7ed768e4-796d-4c5a-bbe9-e98413cad1c4
-# ╠═c2d01840-6e0b-4e2e-a4aa-236c06e8a466
-# ╠═dbace6ff-958c-4622-a8fd-5b0c5dbe3a68
-# ╠═3fa6096f-008d-48be-aab7-7cee37ff9f9d
-# ╟─fe13ce8e-d4c6-4bb3-8d52-d9f210a07bf1
-# ╠═bc30c32d-60c1-4175-bcbd-ba61cba73566
-# ╠═2d1f499d-a6d9-4549-8932-759394bc0680
-# ╠═d937f840-3aea-45d1-862d-0b237cecdce5
-# ╟─1ce9abbf-5ff3-40b3-8c3c-ebba196a4066
-# ╟─926b5603-e83f-413a-a920-10d5d8af4a4f
-# ╟─24f884dc-901c-4fd2-b4ab-6e965fe994be
-# ╟─d0dbf676-cb4e-4f42-9fec-705c3cfeac4b
+# ╠═d5056b36-dd9c-4ef4-9393-5acfa8250a4b
+# ╠═920827e5-e351-48cd-9aa3-dc4b5ced2371
+# ╠═0d9444c4-86d3-4bc6-b88e-da1b30707fd2
+# ╠═185c646e-877f-4802-acda-83f4a1bca263
+# ╠═c3f93002-ab58-4a8e-9279-ca661160dd58
+# ╠═623f936e-d28d-4d6d-aefc-5b3d36d4f2f6
+# ╠═4c42b1e0-26b4-4867-bf0d-468408cc502f
+# ╠═84911782-146b-4277-a53b-09821fd50444
+# ╠═22ef26b2-0e7d-439c-9e94-52134b0c4d78
+# ╠═3b356c50-5254-49b9-b41f-4878aba56c3b
+# ╠═b90fed80-2066-4807-b3d1-6a16f9177fdd
+# ╠═e5bdb39e-b43a-46b2-8259-ebd645f661da
+# ╠═21085e82-ce07-4113-b0a9-ce243b0ed6df
+# ╠═cc621fd6-ec20-4957-b4c1-ddd196b47788
+# ╠═211afa4c-67f9-4417-bc0d-5d9aed05392c
+# ╠═6849d8a3-20b1-4ad3-b46a-7f21d722e420
+# ╠═b9684580-fe30-410a-ae67-0eb73a07052f
+# ╠═d9e7f4e9-07b8-4443-8e44-0e44b6ea6b2a
+# ╠═ac2a4d63-c4e8-439d-9cfb-85066701d39d
+# ╠═b3443aaf-1282-4aca-ab3c-9402d7d7a149
+# ╠═168c90b7-738c-472d-93c8-0ae1cb5a1c62
+# ╠═2e66a658-0153-4d77-a1aa-f8f01723aa51
+# ╠═65e9b76f-ed65-4f03-81e2-07e7815d29cb
+# ╠═a6b5a5a2-4469-4f7a-8ce9-759d8ad724ff
+# ╠═28556cb1-4057-429c-87e6-dd920b3d1be7
+# ╠═4ca29886-4c50-4a41-91dc-75f6f3c98f38
+# ╠═e1635a84-fb37-4ee9-b707-e2a0f2586fd8
+# ╠═73a41963-bc56-4000-9b6f-8b8e0ea886e6
+# ╠═ab09440a-8c82-4f7b-aaaf-d3489da536a4
+# ╠═e5244944-4b88-49cc-8feb-72d005ea9a5a
+# ╠═7415f9f5-16f5-4d97-a02a-bef5d67fb2b9
+# ╠═74d42aa0-701f-4425-b558-d0015754ce54
+# ╠═c3b017e9-3b39-4828-9bd2-015fb1ee125f
+# ╠═68dad6c6-fd81-424b-b2b7-59a183ce15b1
+# ╠═794134a6-36ee-4430-9be7-e76137aba8ab
+# ╠═d197ecc9-e0c2-4ae5-b1d9-a576b2aee593
+# ╠═e9f59464-8afc-43cb-9e56-14d70ccec1bd
+# ╠═ef68678f-19a5-4029-a6e0-ae158b56c7b7
+# ╠═a1823b76-7854-4313-a471-e263e25301c5
+# ╠═4ba155c5-1ab5-4414-80e4-7f6b4edae99d
+# ╠═b075eb12-d8dd-48bc-ae92-f7671da140b0
+# ╠═bac89d72-1324-40eb-a1a3-22386db2bf44
+# ╠═79a78660-75d7-41fd-81fd-58b5eec7b7c1
+# ╠═7d892f6f-c6c3-469b-8273-e221c4149b83
+# ╠═ff52adf3-6d31-4619-a801-3852f0a7217e
+# ╠═0f0187a3-5d17-43b7-b947-d9d662628973
+# ╠═5ef4f823-1ba4-4967-911b-4b9fc3b452a9
+# ╠═ce817c39-cd4b-47f3-a1de-84bc554e324a
+# ╠═509eab8a-4ee3-4f4d-80ab-1c8e22283913
+# ╠═7ac79a39-781b-48ad-8728-50ea3f54512e
+# ╠═216770d9-cd9d-4601-aff8-dbd09c99cc3d
+# ╠═f6b6d25f-5318-4bfe-a6b0-bc784157b86c
+# ╠═1422cdb7-3d75-4c44-96b1-5f4b52a2f01c
+# ╠═99be26ef-8806-4d85-b95e-4d57f1ab169a
+# ╠═c1e27a18-186d-477b-9925-c3071ee0e014
+# ╠═183ae60e-2594-4ab8-bbc9-87d7f361a89f
+# ╠═3bf004c6-ff4c-4c1e-93ee-5e4fa0595c61
+# ╠═a87bc98a-0e76-4d0d-870f-f9159f433732
+# ╠═6cacb67f-c0d5-411a-97e1-d87e548f4404
+# ╠═0d5cec3f-424e-4267-a8e9-98c909bed666
+# ╠═b77e4a2e-122b-4414-a36d-9be68bacf422
+# ╠═d8801bab-b3d1-4aae-aaf1-8881f7ee897b
+# ╠═dd712e71-dad9-485e-8937-6a4a633a12df
+# ╠═7f06403f-2b9b-4de3-b5dc-ad65a2137703
+# ╠═d13caa03-f605-4110-a90f-4247a8cbee0c
+# ╠═65f17dc8-40aa-4ae6-b106-03e466422849
+# ╠═2bc16931-9d46-4f8c-9967-3ac7fbd78ba4
+# ╠═1481551d-195a-4c4b-b0ea-7c48757f9752
+# ╠═bd03ce96-aceb-4a0f-b4f1-056c7fb76874
+# ╠═ce753387-7e0e-4c0b-90b2-b1fb6f4cfcd4
+# ╠═4d00e9c5-6066-463c-bf2a-cb588b626153
+# ╠═94e2a35c-1779-4be8-8e29-30840e4a01a3
+# ╠═5cfa9547-4e1f-4ef5-be43-630336af4f50
+# ╠═cd97b858-b3b6-4f73-aea2-d22996a94de8
+# ╠═81018431-c069-47c5-87e2-ba726ca76d30
+# ╠═75a05ef1-8ee9-408c-94aa-d6cbabcacff6
+# ╠═b5ca5c0a-98f5-47bf-bb3b-93eae792bce0
+# ╠═23cf57bc-c219-46b8-b55f-4e4afac0a62d
+# ╟─f8205571-de51-4709-9ff2-8b95e9158601
+# ╠═82592d3f-886c-4e7c-97fd-a763e4fec8fc
+# ╠═2d630198-bdb9-4f4f-be50-6388fc5ca67b
+# ╟─f0b48acc-de9a-466d-b8b0-287d4720a518
+# ╠═8747c6ab-e567-4558-a0f5-e2868ed5e27c
+# ╠═675bca64-7a1a-4a6c-b433-38dcb3a183cb
+# ╠═b2d8c0fe-25b1-4ec9-80ac-36536efedd6b
+# ╠═f11a945b-75c8-4ef4-b2ba-535a804e3462
+# ╠═27b7eb9a-0d84-47bd-a92c-9550324fcd68
+# ╠═87fbc99d-0641-4728-abb3-687f959e6c2d
+# ╠═4a66ac84-e9ae-465f-ba9c-c0000790ce13
+# ╠═ef6d2bc2-0791-4f9d-8a93-c57334018d33
+# ╠═56b649a8-b340-497c-aad6-982a76744c0e
+# ╠═30c24b15-9015-4a55-b640-a0df1a891508
+# ╠═2d879782-d73c-450a-885c-8aa161ab65a9
+# ╠═a240a9fb-e54c-41e1-a8cb-0f02df0008f1
+# ╠═05cf9adb-922a-485b-8f5b-0f34d64f7774
+# ╠═daf20829-540f-4757-9351-162cc0ca2677
+# ╠═f077cf3b-92bf-4dec-a217-f8cdef08f2b9
+# ╠═634a57e2-051e-4797-a5ad-193661b46334
+# ╠═5847b0ac-d38e-4b58-b8fb-85b36c873bef
+# ╠═13223b99-435f-4481-ba59-840d5f570879
+# ╠═80e5f43b-2c8a-4913-b6da-d3e65c670b6e
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
